@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Interactivo de Información Financiera</title>
+    <link rel="icon" type="image/png" sizes="40x40" href="img/PIIF-icono.png">    
+    <!-- CSS Header -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- CSS Footer -->
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- Toast alert -->
+    <link rel="stylesheet" href="css/toast.css">
+    <!-- Libros -->
+    <link rel="stylesheet" href="css/libros.css">
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <!-- Header -->
+    <header>
+      <div class="logo-portal">
+        <img src="img/PIIF-logo.png" alt="Logo Portal" class="logo-grande">
+        <img src="img/PIIF-icono.png" alt="Logo Pequeño" class="logo-pequeno">
+      </div>
+      <!-- Imagen central -->
+      <div class="header-centro">
+        <!-- <img src="../img/header_BM.png" alt="Banco de México"> -->
+      </div>
+      <div class="divInfoHeader">
+        <div class="datos-usuario">
+          <span>Luis Antonio Hernández De La Luz</span>
+          <span>B16847 - 002001</span>
+        </div>
+        <img src="img/b16847.png" class="user-img" alt="Luis Antonio Hernández De La Luz">
+      </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+      <!-- Alerta toast -->
+      <div id="toast-container" class="fixed top-4 right-4 space-y-3 z-[2000]"></div>
+
+      <!-- Buscador de libros -->
+      <div class="buscador-container">
+        <input id="buscador-libros" type="text" placeholder="Buscar libros..." class="buscador-input">
+      </div>
+
+      <!-- Libros -->
+      <div class="cards-container">
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">1</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Portal Interactivo de Informacion</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">2</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Mercados Financieros</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">3</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Requerimientos de capital</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">4</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Marcados de renta fija</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">5</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Calificaciones de envío de información</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">6</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Captación de recursos</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">7</span>
+            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+          </div>
+          <h5>Mercado de renta variable</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+
+        <div class="libro" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+          <div class="cinta">
+            <div class="icono-info">ℹ️</div>
+            <div class="espacio-superior"></div>
+            <span class="numero">8</span>
+            <span class="clasificacion-icono">🔒</span>
+          </div>
+          <h5>Mi libro personal</h5>
+          <div class="acciones-libro">
+            <button class="btn-explorar">Explorar</button>            
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer>
+      <img src="img/logoBM.png" alt="Banco de México" class="logo-footer">
+      <span class="footer-text">
+        <strong>Banco de México</strong>
+      </span>
+
+      <!-- Opciones de usuario -->
+      <div class="footer-buttons">
+        <div class="circle-btn" data-tooltip="Español">
+          <img src="img/esp.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Ingles">
+          <img src="img/eng.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Asignar permisos">
+          <img src="img/userPermisos.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Administrador">
+          <img src="img/userAdmin.png"  />
+        </div>
+        <div class="circle-btn" data-tooltip="Salir">
+          <img src="img/cerrar-sesion.png" />
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Modal de información de los libros -->
+    <div id="modal-libro" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h2 class="modal-titulo"></h2>
+        <img class="modal-imagen" src="" alt="Imagen del libro">
+        <p class="modal-descripcion"></p>
+      </div>
+    </div>
+
+    
+    <!-- scripts -->    
+    <script src="librerias/jquery-3.7.1.min.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/portada.js"></script>
+  
+
+  </body>
+</html>
