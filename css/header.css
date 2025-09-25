@@ -1,0 +1,108 @@
+/* Variables de tamaño */
+:root {
+  --header-h: 63px;
+}
+
+/* ====== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: url("../img/Cab20252.png") no-repeat center center;
+  background-size: cover;
+  padding-left: 1rem;
+  padding-right: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  z-index: 1000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo-portal {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5); 
+	border: 1px solid #04b3bb;
+    padding: 0 0.5rem; 
+    border-radius: 0 8px 8px 0; 
+}
+
+.logo-portal img {
+  height: calc(var(--header-h) - 12px);
+  object-fit: contain;
+}
+.logo-grande {
+  display: block;
+}
+.logo-pequeno {
+  display: none;
+}
+
+.divInfoHeader {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+  position: relative;
+  color: #ffffff;
+}
+
+.datos-usuario {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #000000;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.user-img {
+  height: var(--header-h);
+  border-radius: 50% 0 0 50%;
+  object-fit: cover;
+  display: block;
+  margin-right: 0;
+  border-left: 2px solid #62DDFC;
+}
+
+
+
+/* Header responsivo*/
+@media (max-width: 768px) {
+  .logo-grande {
+    display: none;
+  }
+  .logo-pequeno {
+    display: block;
+  }
+  .header-centro {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .divInfoHeader {
+    background-color: rgba(26, 42, 75, 0.6);
+    padding-left: 1.5rem; 
+    border-radius: 8px 0 0 8px; 
+    color: #ffffff !important;
+  }
+  
+  .datos-usuario {
+    color: #ffffff;
+  } 
+
+  header {
+    border-bottom: 2px solid #fd850c;
+  }
+
+}

@@ -1,1 +1,110 @@
-s
+/* Variables de tamaño */
+:root {
+  --footer-h: 56px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-h);
+  background: radial-gradient(circle, rgba(0, 99, 166, 1) 0%, rgba(32, 56, 90, 1) 57%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra el texto */
+  border-top: 2px solid #fd850c;
+  font-size: 0.85rem;
+}
+
+footer .logo-footer {
+  position: absolute;   
+  left: 10px;           
+  height: 70%;          
+  max-height: 40px;     
+  object-fit: contain;  
+}
+
+.footer-text {
+  display: inline;
+}
+
+.footer-buttons {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  gap: 8px; /* espacio entre los botones */
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  background: #F5F6FA;
+  border: 2px solid #62DDFC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative; /* Necesario para tooltip */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.circle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(98, 221, 252, 0.6);
+}
+
+.circle-btn img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+/* === Tooltip === */
+.circle-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* arriba del botón */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #04b3bb;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Flecha del tooltip */
+.circle-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 110%; /* justo debajo del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #04b3bb transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar tooltip al hover */
+.circle-btn:hover::after,
+.circle-btn:hover::before {
+  opacity: 1;
+}
+
+/* Oculta el texto de Banco de Mexico en pantallas pequeñas */
+@media (max-width: 680px) {
+  .footer-text {
+    display: none;
+  }
+}
