@@ -605,6 +605,17 @@ main {
   font-size: 14px;
 }
 
+.nivel-4.seleccionado a{
+  background-color: #04b3bb;
+  color: #ffffff !important;
+  border-radius: 4px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+
+
+
 
 
 
