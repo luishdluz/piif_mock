@@ -69,6 +69,7 @@ $(document).ready(function() {
   $("#menu-lateral").on("click", ".nivel-4 a", function(e) {
     e.preventDefault();
     const contenidoId = $(this).data("contenido");
+    const descripcion = $(this).data("descripcion");
 
     // Aquí podrías traer contenido dinámico o simular con texto
     //$("#contenido-libro").html(
@@ -76,6 +77,7 @@ $(document).ready(function() {
     //);
 
     $(".seccionSelect").text($(this).text());
+    $(".descripcionSelect").text(descripcion);
 
     $("#menu-lateral").removeClass("show");
   });
@@ -189,6 +191,200 @@ $("#btn-contraer").on("click", function () {
   $(".menu-arbol ul").hide(); // oculta todos los subniveles
   $(".menu-arbol .toggle").text("▸"); // cambia icono
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const cont = document.querySelector('.contenedor-botones');
+  const inner = document.querySelector('.botones-scroll');
+  if (!cont || !inner) return;
+
+  function updateAlign() {
+    // si el contenido interno es más ancho que el contenedor -> activar left-aligned
+    if (inner.scrollWidth > cont.clientWidth) {
+      cont.style.justifyContent = 'flex-start';
+    } else {
+      cont.style.justifyContent = 'center';
+    }
+  }
+
+  // ejecutar al inicio y al redimensionar
+  updateAlign();
+  window.addEventListener('resize', updateAlign);
+
+  // si agregas/remueves botones dinámicamente, llama updateAlign() después.
+});
+
+
+
+/* Graficas */
+
+let chart1, chart2;
+
+
+chart1 = Highcharts.chart('graficaA', {
+    chart: { type: 'column' },
+    title: { text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/' },
+    xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
+    yAxis: { title: { text: 'Billones de pesos' } },
+    series: [
+        { name: 'Swaps', data: [1, 3, 2, 4, 3] },
+        { name: 'Futuros', data: [2, 4, 1, 3, 5] },
+        { name: 'Forwards', data: [3, 2, 4, 1, 2] },
+        { name: 'Opciones y Títulos Opcionales', data: [4, 3, 5, 2, 1] }
+    ]
+});
+
+chart2 = Highcharts.chart('graficaB', {
+    chart: { type: 'column' },
+    title: { text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/' },
+    xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
+    yAxis: { title: { text: 'Billones de pesos' } },
+    series: [
+        { name: 'Swaps', data: [2, 4, 1, 5, 3] },
+        { name: 'Futuros', data: [3, 1, 4, 2, 5] },
+        { name: 'Forwards', data: [5, 2, 3, 1, 4] },
+        { name: 'Opciones y Títulos Opcionales', data: [1, 5, 2, 3, 4] }
+    ]
+});
+
+
+function cargarGraficas() {
+  chart1 = Highcharts.chart('graficaA', {
+      chart: { type: 'column' },
+      title: { text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/' },
+      xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
+      yAxis: { title: { text: 'Billones de pesos' } },
+      series: [
+          { name: 'Swaps', data: [1, 3, 2, 4, 3] },
+          { name: 'Futuros', data: [2, 4, 1, 3, 5] },
+          { name: 'Forwards', data: [3, 2, 4, 1, 2] },
+          { name: 'Opciones y Títulos Opcionales', data: [4, 3, 5, 2, 1] }
+      ]
+  });
+
+  chart2 = Highcharts.chart('graficaB', {
+      chart: { type: 'column' },
+      title: { text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/' },
+      xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
+      yAxis: { title: { text: 'Billones de pesos' } },
+      series: [
+          { name: 'Swaps', data: [2, 4, 1, 5, 3] },
+          { name: 'Futuros', data: [3, 1, 4, 2, 5] },
+          { name: 'Forwards', data: [5, 2, 3, 1, 4] },
+          { name: 'Opciones y Títulos Opcionales', data: [1, 5, 2, 3, 4] }
+      ]
+  });
+}
+
+// Inicializamos al cargar la página
+document.addEventListener("DOMContentLoaded", cargarGraficas);
+
+document.getElementById("btnRestablecer").addEventListener("click", function () {
+  cargarGraficas();
+});
+
+// Botón de mostrar (segundo botón con imagen de mostrar)
+document.getElementById("btn-mostrar").addEventListener("click", function () {
+    chart1.series.forEach(function (serie) {
+        serie.show();
+    });
+    chart2.series.forEach(function (serie) {
+        serie.show();
+    });
+});
+
+// Botón de ocultar todas las series
+document.querySelector('button[data-tooltip="Ocultar series"]').addEventListener("click", function () {
+    chart1.series.forEach(function (serie) {
+        serie.hide();
+    });
+    chart2.series.forEach(function (serie) {
+        serie.hide();
+    });
+});
+
+let tooltipActivo = true;
+
+// Botón de tooltip ↔ tabla
+document.querySelector('button[data-tooltip="Tooltip"]').addEventListener("click", function () {
+    if (tooltipActivo) {
+        // 🔴 Apagar tooltips
+        chart1.update({ tooltip: { enabled: false } });
+        chart2.update({ tooltip: { enabled: false } });
+
+        // Mostrar tabla
+        generarTablaDatos();
+        document.getElementById("tabla-datos").style.display = "block";
+
+        tooltipActivo = false;
+    } else {
+        // 🟢 Encender tooltips
+        chart1.update({ tooltip: { enabled: true } });
+        chart2.update({ tooltip: { enabled: true } });
+
+        // Ocultar tabla
+        document.getElementById("tabla-datos").style.display = "none";
+
+        tooltipActivo = true;
+    }
+});
+
+function generarTablaDatos() {
+    const tbody = document.getElementById("tabla-body");
+    tbody.innerHTML = ""; // limpiar antes
+
+    // Usamos categorías de la primera gráfica (puedes ajustarlo si difieren)
+    const categorias = chart1.xAxis[0].categories;
+
+    categorias.forEach((categoria, i) => {
+        let fila = `<tr><td>${categoria}</td>`;
+
+        chart1.series.forEach(serie => {
+            fila += `<td>${serie.data[i] ? serie.data[i].y : "-"}</td>`;
+        });
+
+        tbody.innerHTML += fila + "</tr>";
+    });
+}
+
+
+let referenciasActivas = false;
+
+document.querySelector('button[data-tooltip="Referencias"]').addEventListener("click", function () {
+    const divRef = document.getElementById("referencias");
+    if (referenciasActivas) {
+        divRef.style.display = "none"; // ocultar
+        referenciasActivas = false;
+    } else {
+        divRef.style.display = "block"; // mostrar
+        referenciasActivas = true;
+    }
+});
+
+
+let visualizacionActiva = false;
+
+// Botón Visualización
+document.querySelector('button[data-tooltip="Visualización"]').addEventListener("click", function () {
+    const divVis = document.getElementById("visualizacion");
+    visualizacionActiva = !visualizacionActiva;
+    divVis.style.display = visualizacionActiva ? "block" : "none";
+});
+
+// Cambio de tipo de gráfica
+document.getElementById("tipoGrafica").addEventListener("change", function () {
+    const tipo = this.value;
+
+    // Cambiar todas las series de chart1
+    chart1.series.forEach(s => s.update({ type: tipo }, false));
+    chart1.redraw();
+
+    // Cambiar todas las series de chart2
+    chart2.series.forEach(s => s.update({ type: tipo }, false));
+    chart2.redraw();
+});
+
+
+
 
 
 });
