@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Interactivo de Información Financiera</title>
+    <link rel="icon" type="image/png" sizes="40x40" href="img/PIIF-icono.png">    
+    <!-- CSS Header -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- CSS Footer -->
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- Toast alert -->
+    <link rel="stylesheet" href="css/toast.css">
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Estilos del contenido del libro -->
+    <link rel="stylesheet" href="css/contenidoPortal.css">
+  </head>
+  <body>
+    
+    <!-- Header -->
+    <header>
+      <div class="logo-portal">
+        <img src="img/PIIF-logo.png" alt="Logo Portal" class="logo-grande">
+        <img src="img/PIIF-icono.png" alt="Logo Pequeño" class="logo-pequeno">
+      </div>
+      <!-- Imagen central -->
+      <div class="header-centro">
+        <!-- <img src="../img/header_BM.png" alt="Banco de México"> -->
+      </div>
+      <div class="divInfoHeader">
+        <div class="datos-usuario">
+          <span>Luis Antonio Hernández De La Luz</span>
+          <span>B16847 - 002001</span>
+        </div>
+        <img src="img/b16847.png" class="user-img" alt="Luis Antonio Hernández De La Luz">
+      </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+      <!-- Título fijo del libro -->
+      <div id="titulo-libro-fijo">
+        <button id="btn-hamburguesa">☰</button>
+        <span id="titulo-libro-texto">Título del libro</span>
+      </div>
+
+      <!-- Contenedor dividido -->
+      <div id="contenido-dividido">
+        <!-- Menú lateral -->
+        <nav id="menu-lateral">
+          
+          <!-- Buscador y botones -->
+          <div class="menu-fijo">
+            <input type="text" id="buscador-menu" placeholder="Buscar contenido...">
+            <div class="menu-buttons">
+              <div class="circle-btn" data-tooltip="Expandir todo" id="btn-expandir">
+                <img src="img/maximizar.png" alt="Expandir">
+              </div>
+              <div class="circle-btn" data-tooltip="Contraer todo" id="btn-contraer">
+                <img src="img/contraer.png" alt="Contraer">
+              </div>
+              <div class="circle-btn" data-tooltip="Información" id="btn-info">
+                <img src="img/info.png" alt="Información">
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenedor de secciones del menú (scrollable) -->
+          <div id="menu-scrollable" style="overflow-y: auto;padding: 15px;">
+            <ul class="menu-arbol">
+              
+
+              <li class="nivel-1">
+                <span class="toggle">▸</span> <img src="img/indices.png" class="imgIndicesMenu">Mercado de derivados
+                <ul>
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/grafica.png" class="imgOpcionesMenu">Derivados Vigentes de Bancos y Casas de Bolsa
+                    <ul>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por tipo de institución y de transacción
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Todas las Operaciones Derivadas"><img src="img/seccion.png" class="imgMenSecMenu">Todas las Operaciones Derivadas</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Futuros"><img src="img/seccion.png" class="imgMenSecMenu">Futuros</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Opciones y títulos opcionales"><img src="img/seccion.png" class="imgMenSecMenu">Opciones y títulos opcionales</a></li>
+                        </ul>
+                      </li>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por tipo de mercado
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Desglose por tipo de mercado"><img src="img/seccion.png" class="imgMenSecMenu">Desglose por tipo de mercado</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Futuros"><img src="img/seccion.png" class="imgMenSecMenu">Futuros</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Opciones y Títulos Opcionales"><img src="img/seccion.png" class="imgMenSecMenu">Opciones y Títulos Opcionales</a></li>
+                        </ul>
+                      </li>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por tipo de activo subyacente
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Futuros"><img src="img/seccion.png" class="imgMenSecMenu">Futuros</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Opciones y títulos opcionales"><img src="img/seccion.png" class="imgMenSecMenu">Opciones y títulos opcionales</a></li>
+                        </ul>
+                      </li>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por tipo y residencia de la contraparte
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Desglose por tipo de contraparte"><img src="img/seccion.png" class="imgMenSecMenu">Desglose por tipo de contraparte</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Futuros"><img src="img/seccion.png" class="imgMenSecMenu">Futuros</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Opciones y Títulos Opcionales"><img src="img/seccion.png" class="imgMenSecMenu">Opciones y Títulos Opcionales</a></li>
+                        </ul>
+                      </li>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por plazo residual de los derivados 
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Desglose por plazo residual"><img src="img/seccion.png" class="imgMenSecMenu">Desglose por plazo residual</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Futuros"><img src="img/seccion.png" class="imgMenSecMenu">Futuros</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="Opciones y Títulos Opcionales"><img src="img/seccion.png" class="imgMenSecMenu">Opciones y Títulos Opcionales</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>                  
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/grafica.png" class="imgOpcionesMenu">Volumen Negociado por Bancos y Casas de Bolsa
+                    <ul>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">SubSección 1.2.1
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="contenido1211"><img src="img/seccion.png" class="imgMenSecMenu">Tema 1.2.1.1</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/grafica.png" class="imgOpcionesMenu">Indicadores de las Principales Operaciones Derivadas
+                    <ul>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">SubSección 1.1.1
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="contenido1111"><img src="img/seccion.png" class="imgMenSecMenu">Tema 1.1.1.1</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="contenido1112"><img src="img/seccion.png" class="imgMenSecMenu">Tema 1.1.1.2</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>                  
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/notaMetodologica.png" class="imgOpcionesMenu">Nota metodológica de derivados vigentes
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nivel-1">
+                <span class="toggle">▸</span> <img src="img/indices.png" class="imgIndicesMenu">Mercado de valores
+                <ul>
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/grafica.png" class="imgOpcionesMenu">SubSección 2.1
+                    <ul>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">SubSección 2.1.1
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="contenido2111"><img src="img/seccion.png" class="imgMenSecMenu">Tema 2.1.1.1</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li class="nivel-1">
+                <span class="toggle">▸</span> <img src="img/indices.png" class="imgIndicesMenu">Mercado cambiario
+                <ul>
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/grafica.png" class="imgOpcionesMenu">SubSección 2.1
+                    <ul>
+                      <li class="nivel-3">
+                        <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">SubSección 2.1.1
+                        <ul>
+                          <li class="nivel-4"><a href="#" data-contenido="contenido2111"><img src="img/seccion.png" class="imgMenSecMenu">Tema 2.1.1.1</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+
+
+
+
+            </ul>
+          </div>
+
+        </nav>
+
+        <!-- Contenido/comentario -->
+        <div id="contenido-libro">         
+
+          <div class="card card-sleek d-none d-md-block" style="border-top-right-radius: 0px !important;border-top-left-radius: 0px !important;">
+                  <div class="card-body">
+                    <h5 class="card-title seccionSelect">Introducción</h5>
+                    <p id="descripcion-card" class="card-text ">El Portal Interactivo de Información Financiera (PIIF) es una herramienta informática de diseminación de información, la cual permite visualizar algunos de los principales datos sobre los aspectos más relevantes de diversos mercados financieros. El diseño del PIIF favorece el uso de la información financiera por parte de diferentes tipos de usuarios. De manera paralela, el PIIF ayuda en la organización y sistematización de la información financiera que compila el Banco de México.</p>
+                  </div>
+                </div>
+
+
+        </div>
+      </div>
+
+      <!-- Alerta toast -->
+      <div id="toast-container" class="fixed top-4 right-4 space-y-3 z-[2000]"></div>
+
+      
+
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer>
+      <img src="img/logoBM.png" alt="Banco de México" class="logo-footer">
+      <span class="footer-text">
+        <strong>Banco de México</strong>
+      </span>
+
+      <!-- Opciones de usuario -->
+      <div class="footer-buttons">
+        <div class="circle-btn" data-tooltip="Español">
+          <img src="img/esp.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Ingles">
+          <img src="img/eng.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Asignar permisos">
+          <img src="img/userPermisos.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Administrador">
+          <img src="img/userAdmin.png"  />
+        </div>
+        <div class="circle-btn" data-tooltip="Salir">
+          <img src="img/cerrar-sesion.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Inicio" onclick="window.location.href='index.html'">
+          <img src="img/home2.png" />
+        </div>
+      </div>
+    </footer>
+
+    
+    <!-- scripts -->    
+    <script src="librerias/jquery-3.7.1.min.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/contenidoPortal.js"></script>
+  
+
+  </body>
+</html>
