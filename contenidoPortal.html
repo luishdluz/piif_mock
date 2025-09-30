@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Estilos del contenido del libro -->
     <link rel="stylesheet" href="css/contenidoPortal.css">
+
+    
+
+
   </head>
   <body>
     
@@ -82,7 +86,7 @@
                       <li class="nivel-3">
                         <span class="toggle">▸</span> <img src="img/menus.png" class="imgMenSecMenu">Por tipo de institución y de transacción
                         <ul>
-                          <li class="nivel-4"><a href="#" data-contenido="General"><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
+                          <li class="nivel-4"><a href="#" data-contenido="General" data-descripcion="Las operaciones derivadas vigentes se agrupan de acuerdo al tipo de instrumento o contrato: a) Contratos de Intercambio o &quot;Swaps&quot;, b) Futuros, c) Contratos Adelantados o &quot;Forwards,&quot; y d) Opciones y Títulos Opcionales o &quot;Warrants&quot;."><img src="img/seccion.png" class="imgMenSecMenu">General</a></li>
                           <li class="nivel-4"><a href="#" data-contenido="Todas las Operaciones Derivadas"><img src="img/seccion.png" class="imgMenSecMenu">Todas las Operaciones Derivadas</a></li>
                           <li class="nivel-4"><a href="#" data-contenido="Swaps"><img src="img/seccion.png" class="imgMenSecMenu">Swaps</a></li>
                           <li class="nivel-4"><a href="#" data-contenido="Fordwards"><img src="img/seccion.png" class="imgMenSecMenu">Fordwards</a></li>
@@ -211,13 +215,98 @@
         <!-- Contenido/comentario -->
         <div id="contenido-libro">         
 
-          <div class="card card-sleek d-none d-md-block" style="border-top-right-radius: 0px !important;border-top-left-radius: 0px !important;">
-                  <div class="card-body">
-                    <h5 class="card-title seccionSelect">Introducción</h5>
-                    <p id="descripcion-card" class="card-text ">El Portal Interactivo de Información Financiera (PIIF) es una herramienta informática de diseminación de información, la cual permite visualizar algunos de los principales datos sobre los aspectos más relevantes de diversos mercados financieros. El diseño del PIIF favorece el uso de la información financiera por parte de diferentes tipos de usuarios. De manera paralela, el PIIF ayuda en la organización y sistematización de la información financiera que compila el Banco de México.</p>
-                  </div>
-                </div>
 
+            <!-- Card -->
+            <div class="card-derecha">
+              <div class="card w-100">
+                <h3 class="card-titulo seccionSelect">Seleccione un elemento</h3>
+                <p class="card-descripcion descripcionSelect">
+                  Seleccione una descripción
+                </p>
+              </div>
+            </div>
+
+            <!-- Botones de grafica -->
+            <div class="contenedor-botones">
+              <div class="botones-scroll">
+                <button class="btn-circular" id="btnRestablecer" data-tooltip="Restablecer gráfica">
+                  <img src="img/reestablecer.png" alt="Restablecer gráfica">
+                </button>
+                <button class="btn-circular" id="btn-mostrar" data-tooltip="Mostrar series">
+                  <img src="img/mostrar.png" alt="Mostrar series">
+                </button>
+                <button class="btn-circular" data-tooltip="Ocultar series">
+                  <img src="img/ocultar.png" alt="Ocultar series">
+                </button>
+                <button class="btn-circular" data-tooltip="Tooltip">
+                  <img src="img/tooltip.png" alt="Tooltip">
+                </button>
+                <button class="btn-circular" data-tooltip="Referencias">
+                  <img src="img/referencias.png" alt="Referencias">
+                </button>
+                <button class="btn-circular" data-tooltip="Visualización">
+                  <img src="img/visualizacion.png" alt="Visualización">
+                </button>
+              </div>
+            </div>
+
+
+            <!-- Contenedor del selector de visualización -->
+            <div id="visualizacion" style="display:none; margin-top:20px;">
+              <label for="tipoGrafica" style="margin-right:10px; font-weight:bold; color:#20385a;">
+                Tipo de visualización:
+              </label>
+              <select id="tipoGrafica">
+                <option value="line">Línea</option>
+                <option value="area">Área</option>
+                <option value="column">Barra</option>
+              </select>
+            </div>
+
+            <!-- Graficas -->
+            <div class="contenedor-graficas">
+              <div id="graficaA" class="grafica-highcharts"></div>
+              <div id="graficaB" class="grafica-highcharts"></div>
+            </div>
+
+            <!-- Contenedor de la tabla -->
+            <div id="tabla-datos" style="display:none; margin-top:20px;">
+              <div class="tabla-responsive">
+                <table class="tabla-bonita">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Swaps</th>
+                      <th>Futuros</th>
+                      <th>Forwards</th>
+                      <th>Opciones y Títulos Opcionales</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+
+            <!-- Contenedor de referencias -->
+            <div id="referencias" style="display:none; margin-top:20px;">
+              <div class="card-referencias">
+                <h3>Referencias</h3>
+                <ul>
+                  <li>Fuente de datos oficial del sistema.</li>
+                  <li>Indicadores validados con la norma técnica.</li>
+                  <li>Datos procesados en tiempo real con API interna.</li>
+                  <li>Metodología estadística revisada trimestralmente.</li>
+                </ul>
+              </div>
+            </div>
+
+
+
+
+          
+
+   
 
         </div>
       </div>
@@ -268,6 +357,12 @@
     <script src="librerias/jquery-3.7.1.min.js"></script>
     <script src="js/toast.js"></script>
     <script src="js/contenidoPortal.js"></script>
+
+    <!--Highcharts -->
+    <script src="librerias/highcharts.js"></script>
+    <script src="librerias/exporting.js"></script>
+    <script src="librerias/export-data.js"></script>
+    <script src="librerias/accessibility.js"></script>
   
 
   </body>
