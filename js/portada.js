@@ -54,4 +54,9 @@ $(document).ready(function() {
     }
   });
 
+  $('.btn-explorar').on('click', function() {
+    var libroParam = $(this).closest('.libro').data('libro');
+    window.location.href = 'contenidoPortal.html?libro=' + libroParam;
+  });
+
 });
