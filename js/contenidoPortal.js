@@ -385,6 +385,25 @@ document.getElementById("tipoGrafica").addEventListener("change", function () {
 
 
 
+$(".nivel-4 a").on("click", function(e) {
+    e.preventDefault(); // si no quieres que haga navegación
+
+    // Quitar clase 'seleccionado' de cualquier otro link
+    $(".nivel-4").removeClass("seleccionado");
+
+    // Agregar clase 'seleccionado' al link clicado
+    $(this).parent().addClass("seleccionado");
+  });
+
+  // Opcional: disparar click automático en el primer link al inicio
+  const $primerLink = $(".nivel-4 a").first();
+  if ($primerLink.length) {
+    $primerLink.click();
+  }
+
+  $("#btn-expandir").click();
+
+
 
 
 });
