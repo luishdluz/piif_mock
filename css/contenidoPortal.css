@@ -1,0 +1,371 @@
+body{
+  background: #ffffff;
+}
+
+main {
+  position: absolute;
+  top: calc(var(--header-h) - 15px); 
+  bottom: var(--footer-h); 
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título fijo debajo del header */
+#titulo-libro-fijo {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle,rgba(59, 120, 120, 1) 0%, rgba(4, 179, 187, 1) 50%, rgba(59, 120, 120, 1) 100%);
+  color: #fff;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: 1500;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+#titulo-libro-texto {
+  display: block;
+  white-space: nowrap;       
+  overflow: hidden;          
+  text-overflow: ellipsis;   
+  margin-left: 3.5rem;       
+}
+
+/* Botón hamburguesa */
+#btn-hamburguesa {
+  display: none; 
+  background: red; 
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1600;
+}
+
+/* Contenedor dividido */
+#contenido-dividido {
+  position: absolute;
+  top: calc(var(--header-h));
+  bottom: calc(var(--footer-h) - 56px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Menú lateral */
+#menu-lateral {
+  width: 40%;
+  min-width: 200px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  box-sizing: border-box;
+  background: #F5F6FA;
+  color: #000000;
+}
+
+/* Lista de menú */
+#menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-lateral li {
+  margin-bottom: 1rem;
+}
+
+#menu-lateral a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#menu-lateral a:hover {
+  color: #04b3bb;
+}
+
+/* Contenido derecho */
+#contenido-libro {
+  width: 60%;
+  background-color: #ffffff;
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%; 
+  text-align: center;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 768px) {
+  #contenido-dividido {
+    flex-direction: column;
+  }
+
+  /*#menu-lateral {
+    position: fixed;
+    left: -250px; 
+    top: calc(var(--header-h) + 50px);
+    height: calc(100% - var(--header-h) - 50px);
+    width: 250px;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    background: #F5F6FA;
+    border-right: 1px solid #04b3bb;
+  }*/
+
+  #menu-lateral {
+    position: fixed;
+    left: -100%; /* fuera de la pantalla por defecto */
+    top: calc(var(--header-h) + 50px);
+    height: calc(100% - var(--header-h) - 50px);
+    width: 100%;  /* ocupa todo el ancho */
+    z-index: 2000;
+    background: #F5F6FA;
+    border-right: 1px solid #04b3bb;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  #menu-lateral.show {
+    left: 0;
+  }
+
+  #contenido-libro {
+    width: 100%;
+  }
+
+  #btn-hamburguesa {
+    display: block;
+  }
+}
+
+.menu-fijo {
+  flex-shrink: 0; /* no se reduce */
+  padding: 1rem;
+  border-bottom: 1px solid #04b3bb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: radial-gradient(circle, rgba(0, 99, 166, 1) 0%, rgba(32, 56, 90, 1) 57%);
+}
+
+.menu-fijo input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.menu-fijo button {
+  background-color: #04b3bb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.menu-fijo button:hover {
+  background-color: #03929a;
+}
+
+.menu-scrollable {
+  flex: 1; 
+  overflow-y: auto !important;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.menu-scrollable ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-scrollable li {
+  margin-bottom: 1rem;
+}
+
+.menu-scrollable a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-scrollable a:hover {
+  color: #04b3bb;
+}
+
+#menu-lateral .menu-fijo #buscador-menu {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 2px solid #62DDFC;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#menu-lateral .menu-fijo #buscador-menu:focus {
+  border-color: #62DDFC;
+  box-shadow: 0 0 6px rgba(4,179,187,0.5);
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.menu-buttons .circle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F5F6FA;
+  border: 2px solid #62DDFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.menu-buttons .circle-btn img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.menu-buttons .circle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Tooltip */
+.menu-buttons .circle-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* sobre el botón */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #04b3bb;
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.menu-buttons .circle-btn:hover::after {
+  opacity: 1;
+}
+
+
+/* ===== Arbol de contenidos ===== */
+.menu-arbol, .menu-arbol ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.menu-arbol li {
+  margin: 0.3rem 0;
+  cursor: pointer;
+  position: relative;
+  color: #000000;
+}
+
+.menu-arbol .toggle {
+  font-weight: bold;
+  margin-right: 0.3rem;
+  color: #62ddfc;
+  cursor: pointer;
+}
+
+.menu-arbol ul {
+  display: none; /* oculto por defecto */
+}
+
+.menu-arbol li.expanded > ul {
+  display: block;
+}
+
+.menu-arbol a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-arbol a:hover {
+  color: #04b3bb;
+}
+
+.nivel-2{
+  padding-left: 30px;
+}
+
+.nivel-3{
+  padding-left: 30px;
+}
+
+.nivel-4{
+  padding-left: 50px;
+}
+
+
+/* por defecto los submenus cerrados */
+.menu-arbol ul { display: none; }
+
+/* cuando un li tiene la clase open, su ul debe mostrarse (fallback) */
+.menu-arbol li.open > ul { display: block; }
+
+/* estilo claro para resultado */
+.menu-arbol .highlight { background: rgba(255, 235, 59, 0.9); color: #000; font-weight: 700; padding: 0 2px; border-radius: 2px; }
+
+
+.seccionSelect{
+  background: #04b3bb;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.descripcionSeccionSelect{
+  border: 1px solid #04b3bb;
+  padding: 10px;
+}
+
+.imgIndicesMenu{
+  width: 15px;
+  margin-right: 5px;
+}
+
+.imgOpcionesMenu{
+  width: 15px;
+  margin-right: 5px;
+}
+
+.imgMenSecMenu{
+  width: 15px;
+  margin-right: 5px;
+}
