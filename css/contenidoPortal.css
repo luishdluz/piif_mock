@@ -300,6 +300,7 @@ main {
   margin-right: 0.3rem;
   color: #62ddfc;
   cursor: pointer;
+  font-size: 30px;
 }
 
 .menu-arbol ul {
