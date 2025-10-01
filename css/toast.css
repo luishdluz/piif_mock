@@ -1,3 +1,15 @@
+#toast-container {
+  position: fixed;     
+  top: 1rem;           
+  left: 50%;           
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999;       
+  align-items: center; 
+}
+
 .toast-showView{
   padding: 5px;
   text-align: center;
@@ -5,23 +17,28 @@
 }
 
 .successToast{
-  background: #04b3bb;
+  background: linear-gradient(90deg,rgba(23, 130, 13, 1) 0%, rgba(207, 242, 94, 1) 35%, rgba(47, 250, 54, 1) 100%);
   color: #ffffff;
+  padding: 20px;
 }
 
 .errorToast{
-  background: #A63924;
+  background: linear-gradient(90deg,rgba(194, 78, 70, 1) 0%, rgba(242, 129, 94, 1) 35%, rgba(250, 47, 47, 1) 100%);
   color: #ffffff;
+  padding: 20px;
 }
 
 .warningToast{
-  background: #E2F545;
+  background: linear-gradient(90deg,rgba(194, 155, 70, 1) 0%, rgba(234, 242, 94, 1) 35%, rgba(243, 250, 47, 1) 100%);
   color: #000000;
+  padding: 20px;
 }
 
 .infoToast{
-  background: #4594F5;
+  background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
   color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 @keyframes fade-in-down {
