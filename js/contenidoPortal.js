@@ -388,6 +388,12 @@ document.getElementById("tipoGrafica").addEventListener("change", function () {
 $(".nivel-4 a").on("click", function(e) {
     e.preventDefault(); // si no quieres que haga navegación
 
+    //Oculta el boton de información al mostrar la información en pantalla
+    $("#btn-info").hide();
+
+    //Quita seleccion de niveles anteriores al 4
+    $(".textoNiv").removeClass("seleccionado-borde");
+
     // Quitar clase 'seleccionado' de cualquier otro link
     $(".nivel-4").removeClass("seleccionado");
 
@@ -402,6 +408,73 @@ $(".nivel-4 a").on("click", function(e) {
   }
 
   $("#btn-expandir").click();
+
+  let favoritoActivo = false;
+
+$("#btnGrafFav").on("click", function() {
+    favoritoActivo = !favoritoActivo;
+
+    if(favoritoActivo){
+        $(this).css({
+            "background-color": "#04b3bb",
+            "border-color": "#20385a"
+        });
+        $(this).attr("data-tooltip", "Quitar de favoritos");
+
+        // Mostrar toast
+        showToast("Gráfica agregada a favoritos", "info");
+    } else {
+        $(this).css({
+            "background-color": "#F5F6FA",
+            "border-color": "#04b3bb"
+        });
+        $(this).find("img").attr("src", "img/favorito.png");
+        $(this).attr("data-tooltip", "Agregar a favoritos");
+
+        // Mostrar toast
+        showToast("Gráfica removida de favoritos", "info");
+    }
+});
+
+  $(".textoNiv").on("click", function(e) {
+    e.stopPropagation(); 
+
+    //Quita la seleccion de nivel 4
+    $(".nivel-4").removeClass("seleccionado");
+
+    //Oculta el boton de información al mostrar la información en pantalla
+    $("#btn-info").show();
+
+    // quitar borde de todos
+    $(".textoNiv").removeClass("seleccionado-borde");
+
+    // agregar borde al texto clickeado
+    $(this).addClass("seleccionado-borde");
+  });
+
+
+
+  $("#btn-info").on("click", function() {
+    const titulo = $(".seleccionado-borde").text(); // Texto del botón
+    const descripcion = $(".seleccionado-borde").data("descripcion"); // Contenido de data-descripcion
+
+    $("#modal-libro .modal-titulo").text(titulo);
+    $("#modal-libro .modal-descripcion").html(descripcion);
+    $("#modal-libro").fadeIn(200);
+  });
+
+  // Cerrar al hacer clic en la X
+  $("#modal-libro .cerrar").on("click", function() {
+    $("#modal-libro").fadeOut(200);
+  });
+
+  // Cerrar al hacer clic fuera del contenido
+  $(window).on("click", function(e) {
+    if ($(e.target).is("#modal-libro")) {
+      $("#modal-libro").fadeOut(200);
+    }
+
+});
 
 
 
