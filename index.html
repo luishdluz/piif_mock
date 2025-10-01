@@ -47,12 +47,19 @@
       <!-- Buscador de libros -->
       <div class="buscador-container">
         <input id="buscador-libros" type="text" placeholder="Buscar libros..." class="buscador-input">
+
+        <select id="filtro-libros" class="buscador-select">
+          <option value="todos">Todos</option>
+          <option value="publico">Público</option>
+          <option value="privado">Privado</option>
+          <option value="personal">Personal</option>
+        </select>
       </div>
 
       <!-- Libros -->
       <div class="cards-container">
 
-        <div class="libro" data-libro="introduccion" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="introduccion" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -65,7 +72,7 @@
           </div>
         </div>
 
-        <div class="libro" data-libro="mercFin" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="mercFin" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -78,7 +85,7 @@
           </div>
         </div>
 
-        <div class="libro" data-libro="reqCapital" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="reqCapital" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -91,7 +98,7 @@
           </div>
         </div>
 
-        <div class="libro" data-libro="mercValores" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="mercValores" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -104,7 +111,7 @@
           </div>
         </div>
 
-        <div class="libro" data-libro="tabCalificaciones" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="tabCalificaciones" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -118,7 +125,7 @@
         </div>
 
 
-        <div class="libro" data-libro="capRecursos" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="publico" data-libro="capRecursos" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
@@ -132,12 +139,12 @@
         </div>
 
 
-        <div class="libro" data-libro="mercRentVar" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="privado" data-libro="mercRentVar" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
             <span class="numero">7</span>
-            <span class="clasificacion-icono"><img src="img/users.png" style="width: 23px"/></span>
+            <span class="clasificacion-icono">🔒</span>
           </div>
           <h5>Mercado de renta variable</h5>
           <div class="acciones-libro">
@@ -146,14 +153,14 @@
         </div>
 
 
-        <div class="libro" data-libro="libPer1" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
+        <div class="libro" data-tipo="personal" data-libro="libPer1" data-titulo="Créditos al Consumo" data-descripcion="Información detallada sobre los créditos al consumo en México." data-imagen="img/imgLibro.jpg">
           <div class="cinta">
             <div class="icono-info">ℹ️</div>
             <div class="espacio-superior"></div>
             <span class="numero">8</span>
-            <span class="clasificacion-icono">🔒</span>
+            <span class="clasificacion-icono"><img src="img/personal.png" style="width: 23px"/></span>
           </div>
-          <h5>Mi libro personal</h5>
+          <h5>Mi Dashboard</h5>
           <div class="acciones-libro">
             <button class="btn-explorar">Explorar</button>            
           </div>
@@ -174,6 +181,9 @@
 
       <!-- Opciones de usuario -->
       <div class="footer-buttons">
+        <div class="circle-btn" data-tooltip="Dashboard" onclick="window.location.href='dashboards.html'">
+          <img src="img/dashboard.png" />
+        </div>
         <div class="circle-btn" data-tooltip="Español">
           <img src="img/esp.png" />
         </div>
