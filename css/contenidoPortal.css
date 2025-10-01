@@ -68,7 +68,7 @@ main {
 
 /* Menú lateral */
 #menu-lateral {
-  width: 40%;
+  width: 30%;
   min-width: 200px;
   color: #ffffff;
   display: flex;
@@ -101,7 +101,7 @@ main {
 
 /* Contenido derecho */
 #contenido-libro {
-  width: 60%;
+  width: 70%;
   background-color: #ffffff;
   overflow-y: auto;
   padding: 1rem;

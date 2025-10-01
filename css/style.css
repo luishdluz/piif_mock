@@ -151,5 +151,50 @@ main {
   border-radius: 50%;
 }
 
+/* Contenedor flex */
+.buscador-container {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap; 
+}
+
+/* Input ocupa espacio flexible */
+.buscador-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.5rem;
+  border: 2px solid #04b3bb;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Select ocupa un ancho fijo */
+.buscador-select {
+  padding: 0.5rem;
+  border: 2px solid #04b3bb;
+  border-radius: 6px;
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+/* Pantallas pequeñas: select ocupa 100% debajo del input */
+@media (max-width: 600px) {
+  .buscador-input {
+    flex: 100%;
+  }
+  .buscador-select {
+    flex: 100%;
+  }
+}
+
+
 
 
