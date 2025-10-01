@@ -59,4 +59,18 @@ $(document).ready(function() {
     window.location.href = 'contenidoPortal.html?libro=' + libroParam;
   });
 
+
+  $("#filtro-libros").on("change", function() {
+    const filtro = $(this).val();
+
+    $(".libro").each(function() {
+      const tipo = $(this).data("tipo"); // ejemplo si agregas data-tipo en cada libro
+      if (filtro === "todos" || filtro === tipo) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  });
+
 });
