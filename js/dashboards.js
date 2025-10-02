@@ -374,6 +374,47 @@ $("#btn-guardar").click(function() {
   });
 
 
+// Eliminar usuario con modal de confirmación
+  $("#usuarios-permisos").on("click", ".btn-eliminar-usuario", function(){
+    let card = $(this).closest(".usuario-card");
+    
+    $(".modal-titulo").text("Eliminar Permiso");
+    $(".modal-descripcion").text("¿Seguro que deseas eliminar este permiso?");
+    $(".modal-imagen").hide();
+    $(".modal-botones").show();
+
+    $("#modal-libro").fadeIn(200);
+
+    // Confirmación
+    $("#modal-confirmar").off("click").on("click", function(){
+      card.remove();
+      $("#modal-libro").fadeOut(200);
+    });
+
+    $("#modal-cancelar").off("click").on("click", function(){
+      $("#modal-libro").fadeOut(200);
+    });
+  });
+
+  // Asignar usuario (simulación)
+  $("#btn-asignar").click(function(){
+    let nombre = $("#buscar-usuario").val();
+    if(nombre.trim() !== ""){
+      $("#usuarios-permisos").append(`
+        <div class="usuario-card">
+          <img src="https://randomuser.me/api/portraits/men/${Math.floor(Math.random()*50)}.jpg" alt="Usuario">
+          <div class="usuario-info">
+            <p class="nombre">${nombre}</p>
+            <p class="clave">Empleado #${Math.floor(1000+Math.random()*9000)}</p>
+          </div>
+          <button class="btn-eliminar-usuario">Eliminar</button>
+        </div>
+      `);
+      $("#buscar-usuario").val("");
+    }
+  });
+
+
 
 
 
