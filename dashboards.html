@@ -175,7 +175,34 @@
 
           <!-- Permisos -->
           <div id="tab4" class="tab-content" style="display:none;">
-              Aqui se manejan los permisos por dashboard
+              <!-- Sección de asignación de permisos -->
+              <div class="permiso-buscador">
+                <input type="text" id="buscar-usuario" placeholder="Buscar usuario por nombre o clave...">
+                <button id="btn-asignar">Asignar Permiso</button>
+              </div>
+
+              <!-- Lista de usuarios con permisos -->
+              <h3>Usuarios con permisos</h3>
+              <div id="usuarios-permisos" class="usuarios-grid">
+                <!-- Usuario ejemplo -->
+                <div class="usuario-card">
+                  <img src="img/man.png" alt="Usuario">
+                  <div class="usuario-info">
+                    <p class="nombre">Macías González José Jordan</p>
+                    <p class="clave">C18408</p>
+                  </div>
+                  <button class="btn-eliminar-usuario">Eliminar</button>
+                </div>
+
+                <div class="usuario-card">
+                  <img src="img/man.png" alt="Usuario">
+                  <div class="usuario-info">
+                    <p class="nombre">Cruz Hernández Jesús Gerardo</p>
+                    <p class="clave">D10367</p>
+                  </div>
+                  <button class="btn-eliminar-usuario">Eliminar</button>
+                </div>
+              </div>
           </div>
 
         </div>
