@@ -620,6 +620,50 @@ main {
   display: inline-block;
 }
 
+/* Estilo para selects en modal */
+.modal-select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Sección nuevo dashboard */
+.nuevo-dashboard {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.nuevo-dashboard input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+
+.nuevo-dashboard button {
+  padding: 8px 12px;
+  background: #04b3bb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nuevo-dashboard button:hover {
+  background: #03929a;
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  color: #04b3bb;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
 
 
 
