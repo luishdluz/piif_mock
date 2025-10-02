@@ -368,6 +368,36 @@
     </div>
 
 
+    <!-- Modal agregar grafica al dashboard -->
+    <!-- Modal para agregar a dashboard -->
+<div id="modal-dashboard" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <h2 class="modal-titulo">Agregar gráfica a Dashboard</h2>
+    
+    <!-- Selección de dashboard -->
+    <label for="select-dashboard" style="color: #000000 !important;">Seleccionar dashboard:</label>
+    <select id="select-dashboard" class="modal-select">
+      <option value="estadisticas">Estadísticas</option>
+    </select>
+
+    <!-- Crear nuevo dashboard -->
+    <div class="nuevo-dashboard">
+      <label for="nuevo-dashboard" style="color: #000000 !important;">Crear nuevo dashboard:</label>
+      <input type="text" id="nuevo-dashboard" placeholder="Nombre del nuevo dashboard">
+      <button id="btn-crear-dashboard">Crear</button>
+    </div>
+
+    <!-- Botón agregar -->
+    <button id="btn-agregar-dashboard" class="btn-cerrar">Agregar</button>
+
+    <!-- Mensaje de confirmación -->
+    <p id="mensaje-dashboard" class="mensaje-exito" style="display:none;">✅ Gráfica agregada al dashboard</p>
+  </div>
+</div>
+
+
+
     
     <!-- scripts -->    
     <script src="librerias/jquery-3.7.1.min.js"></script>
