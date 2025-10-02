@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis libros</title>
+    <link rel="icon" type="image/png" sizes="40x40" href="img/PIIF-icono.png">    
+    <!-- CSS Header -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- CSS Footer -->
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- Toast alert -->
+    <link rel="stylesheet" href="css/toast.css">
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Estilos del contenido del libro -->
+    <link rel="stylesheet" href="css/contenidoPortal.css">
+    <!-- Dashboards -->
+    <link rel="stylesheet" href="css/dashboards.css">
+  </head>
+  <body>
+    
+    <!-- Header -->
+    <header>
+      <div class="logo-portal">
+        <img src="img/PIIF-logo.png" alt="Logo Portal" class="logo-grande">
+        <img src="img/PIIF-icono.png" alt="Logo Pequeño" class="logo-pequeno">
+      </div>
+      <!-- Imagen central -->
+      <div class="header-centro">
+        <!-- <img src="../img/header_BM.png" alt="Banco de México"> -->
+      </div>
+      <div class="divInfoHeader">
+        <div class="datos-usuario">
+          <span>Luis Antonio Hernández De La Luz</span>
+          <span>B16847 - 002001</span>
+        </div>
+        <img src="img/b16847.png" class="user-img" alt="Luis Antonio Hernández De La Luz">
+      </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+      <!-- Título fijo del libro -->
+      <div id="titulo-libro-fijo">
+        <button id="btn-hamburguesa">☰</button>
+        <span id="titulo-libro-texto">Mis libros</span>
+      </div>
+
+      <!-- Contenedor dividido -->
+      <div id="contenido-dividido">
+        <!-- Menú lateral -->
+        <nav id="menu-lateral">
+          
+          <!-- Buscador y botones -->
+          <div class="menu-fijo">
+            <input type="text" id="buscador-menu" placeholder="Buscar contenido...">
+            <div class="menu-buttons">
+              <div class="circle-btn" data-tooltip="Expandir todo" id="btn-expandir">
+                <img src="img/maximizar.png" alt="Expandir">
+              </div>
+              <div class="circle-btn" data-tooltip="Contraer todo" id="btn-contraer">
+                <img src="img/contraer.png" alt="Contraer">
+              </div>              
+              <div class="circle-btn" data-tooltip="Agregar" id="btn-add">
+                <img src="img/agregar.png" alt="Información" style="width:100% !important;height: 100% !important;">
+              </div>
+              <div class="circle-btn" data-tooltip="Editar" id="btn-edit">
+                <img src="img/editar.png" alt="Información" style="width:100% !important;height: 100% !important;">
+              </div>              
+              <div class="circle-btn" data-tooltip="Borrar" id="btn-delete">
+                <img src="img/borrar.png" alt="Información" style="width:100% !important;height: 100% !important;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenedor de secciones del menú (scrollable) -->
+          <div id="menu-scrollable" style="overflow-y: auto;padding: 15px;">
+            <ul class="menu-arbol">     
+
+
+              <li class="nivel-1">
+                <span class="toggle">▸</span> <img src="img/book.png" class="imgIndicesMenu"><span class="textoNiv" data-descripcion="">Estadisticas</span>
+                <ul>
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/folder.png" class="imgOpcionesMenu"><span class="textoNiv" data-descripcion="Diversos indicadores financieros">Indicadores especializados</span>
+                    <ul>
+                      <li class="nivel-dash">
+                        <img src="img/misDashboards.png" class="imgMenSecMenu"><span class="textoNiv dashboardSeleccionado">Indicadores especializados</span>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="nivel-2">
+                    <span class="toggle">▸</span> <img src="img/folder.png" class="imgOpcionesMenu"><span class="textoNiv" data-descripcion="Estadisticas deportivas">Deportivas</span>
+                    <ul>
+                      <li class="nivel-dash">
+                        <img src="img/misDashboards.png" class="imgMenSecMenu"><span class="textoNiv">Estadisticas deportivas</span>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+
+        <!-- Contenido/comentario -->
+        <div id="contenido-libro">         
+
+          <!-- Menú de Tabs -->
+          <div class="tabs-container">
+            <div class="tabs">
+              <div class="tab active" data-tab="tab1">Previsualización</div>
+              <div class="tab" data-tab="tab2">Buscar</div>
+              <div class="tab" data-tab="tab3">Edición</div>
+              <div class="tab" data-tab="tab4">Permisos</div>
+            </div>
+          </div>
+
+          <!-- Contenido dinámico de tabs -->
+            <!-- Previsualizacion -->
+            <div id="tab1" class="tab-content">
+                <div class="filtros-graficas">
+                  <label>Fecha inicial: <input type="date" id="fecha-inicial"></label>
+                  <label>Fecha final: <input type="date" id="fecha-final"></label>
+                  <button id="btn-buscar-graficas">Buscar</button>
+                </div>
+
+                <div class="grid-graficas">
+                  <div id="grafica1" class="grafica-box"></div>
+                  <div id="grafica2" class="grafica-box"></div>
+                  <div id="grafica3" class="grafica-box"></div>
+                  <div id="grafica4" class="grafica-box"></div>
+                  <div id="grafica5" class="grafica-box"></div>
+                  <div id="grafica6" class="grafica-box"></div>
+                  <div id="grafica7" class="grafica-box"></div>
+                  <div id="grafica8" class="grafica-box"></div>
+                  <div id="grafica9" class="grafica-box"></div>
+                </div>
+
+              
+            </div>
+
+            <!-- Buscador -->
+            <div id="tab2" class="tab-content" style="display:none;">
+              <div class="filtro-busqueda">
+                <input type="text" id="input-busqueda" placeholder="Buscar..." />
+                <button id="btn-buscar">Buscar</button>
+              </div>
+
+              <div id="resultados-busqueda" class="resultados-busqueda">
+                <!-- Aquí se generarán los resultados -->
+              </div>
+            </div>
+          
+          <!-- Edición -->
+          <div id="tab3" class="tab-content" style="display:none;">
+              <!-- Botones generales -->
+  <div id="acciones-tab3" class="acciones-tab3">
+    <button id="btn-guardar" class="btn-accion">💾 Guardar</button>
+    
+  </div>
+
+  <!-- Grid de edición -->
+  <div id="grid-edicion" class="grid-graficas"></div>
+
+          </div>
+
+
+
+          <!-- Permisos -->
+          <div id="tab4" class="tab-content" style="display:none;">
+              <!-- Sección de asignación de permisos -->
+              <div class="permiso-buscador">
+                <input type="text" id="buscar-usuario" placeholder="Buscar usuario por nombre o clave...">
+                <button id="btn-asignar">Asignar Permiso</button>
+              </div>
+
+              <!-- Lista de usuarios con permisos -->
+              <h3>Usuarios con permisos</h3>
+              <div id="usuarios-permisos" class="usuarios-grid">
+                <!-- Usuario ejemplo -->
+                <div class="usuario-card">
+                  <img src="img/man.png" alt="Usuario">
+                  <div class="usuario-info">
+                    <p class="nombre">Macías González José Jordan</p>
+                    <p class="clave">C18408</p>
+                  </div>
+                  <button class="btn-eliminar-usuario">Eliminar</button>
+                </div>
+
+                <div class="usuario-card">
+                  <img src="img/man.png" alt="Usuario">
+                  <div class="usuario-info">
+                    <p class="nombre">Cruz Hernández Jesús Gerardo</p>
+                    <p class="clave">D10367</p>
+                  </div>
+                  <button class="btn-eliminar-usuario">Eliminar</button>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Alerta toast -->
+      <div id="toast-container" class="fixed top-4 right-4 space-y-3 z-[2000]"></div>
+
+      
+
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer>
+      <img src="img/logoBM.png" alt="Banco de México" class="logo-footer">
+      <span class="footer-text">
+        <strong>Banco de México</strong>
+      </span>
+
+      <!-- Opciones de usuario -->
+      <div class="footer-buttons">
+        <div class="circle-btn" data-tooltip="Salir">
+          <img src="img/cerrar-sesion.png" />
+        </div>
+        <div class="circle-btn" data-tooltip="Inicio" onclick="window.location.href='index.html'">
+          <img src="img/home2.png" />
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal de informacion -->
+    <div id="modal-libro" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h2 class="modal-titulo"></h2>
+        <img class="modal-imagen" src="" alt="Imagen del libro" style="display:none;">
+        <p class="modal-descripcion"></p>
+        <div class="modal-botones" style="display:none; margin-top: 1rem; display:flex; justify-content:center; gap:1rem;">
+          <button class="btn-cerrar" id="modal-cancelar">Cancelar</button>
+          <button class="btn-cerrar" id="modal-confirmar" style="background:#A63924;">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- scripts -->    
+    <script src="librerias/jquery-3.7.1.min.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/contenidoPortal.js"></script>
+    <script src="js/dashboards.js"></script>
+    <!--Highcharts -->
+    <script src="librerias/highcharts.js"></script>
+    <script src="librerias/exporting.js"></script>
+    <script src="librerias/export-data.js"></script>
+    <script src="librerias/accessibility.js"></script>
+  </body>
+</html>
