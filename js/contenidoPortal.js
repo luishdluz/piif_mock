@@ -411,30 +411,7 @@ $(".nivel-4 a").on("click", function(e) {
 
   let favoritoActivo = false;
 
-$("#btnGrafFav").on("click", function() {
-    favoritoActivo = !favoritoActivo;
 
-    if(favoritoActivo){
-        $(this).css({
-            "background-color": "#04b3bb",
-            "border-color": "#20385a"
-        });
-        $(this).attr("data-tooltip", "Quitar de favoritos");
-
-        // Mostrar toast
-        showToast("Gráfica agregada a favoritos", "info");
-    } else {
-        $(this).css({
-            "background-color": "#F5F6FA",
-            "border-color": "#04b3bb"
-        });
-        $(this).find("img").attr("src", "img/favorito.png");
-        $(this).attr("data-tooltip", "Agregar a favoritos");
-
-        // Mostrar toast
-        showToast("Gráfica removida de favoritos", "info");
-    }
-});
 
   $(".textoNiv").on("click", function(e) {
     e.stopPropagation(); 
@@ -475,6 +452,58 @@ $("#btnGrafFav").on("click", function() {
     }
 
 });
+
+
+// Abrir modal al dar clic en el botón favorito
+  $("#btnGrafFav").click(function(){
+    favoritoActivo = !favoritoActivo;
+    if(favoritoActivo){
+      $(this).css({
+            "background-color": "#04b3bb",
+            "border-color": "#20385a"
+        });
+        $(this).attr("data-tooltip", "Quitar de favoritos");
+        $("#modal-dashboard").fadeIn(200);
+    }else {
+        $(this).css({
+            "background-color": "#F5F6FA",
+            "border-color": "#04b3bb"
+        });
+        $(this).find("img").attr("src", "img/favorito.png");
+        $(this).attr("data-tooltip", "Agregar a favoritos");
+
+        // Mostrar toast
+        showToast("Gráfica removida de favoritos", "info");
+    }
+      
+  });
+
+  // Cerrar modal
+  $("#modal-dashboard .cerrar").click(function(){
+    $("#modal-dashboard").fadeOut(200);
+    $("#mensaje-dashboard").hide();
+  });
+
+  // Crear nuevo dashboard (simulación)
+  $("#btn-crear-dashboard").click(function(){
+    let nuevo = $("#nuevo-dashboard").val().trim();
+    if(nuevo){
+      $("#select-dashboard").append(`<option value="${nuevo.toLowerCase()}">${nuevo}</option>`);
+      $("#select-dashboard").val(nuevo.toLowerCase());
+      $("#nuevo-dashboard").val("");
+      showToast(`Se creo el nuevo dashboard`, "success");
+    }
+  });
+
+  // Agregar gráfica al dashboard
+  $("#btn-agregar-dashboard").click(function(){
+    let dashboard = $("#select-dashboard option:selected").text();
+    //$("#mensaje-dashboard").text("✅ Gráfica agregada al dashboard " + dashboard).fadeIn(200);
+    showToast(`Se agrego la grafica al dashboard`, "success"); 
+    $("#modal-dashboard").fadeOut(200);
+      $("#mensaje-dashboard").hide();   
+  });
+
 
 
 
