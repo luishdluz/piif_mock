@@ -312,3 +312,90 @@
     border-radius: 8px;
 }
 
+/* Buscador permisos */
+.permiso-buscador {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.permiso-buscador input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.permiso-buscador button {
+  background: #04b3bb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.permiso-buscador button:hover {
+  background: #03929a;
+}
+
+/* Grid de usuarios */
+.usuarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.usuario-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.usuario-card:hover {
+  transform: translateY(-3px);
+}
+
+.usuario-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.usuario-info {
+  flex: 1;
+}
+
+.usuario-info .nombre {
+  font-weight: bold;
+  margin: 0;
+}
+
+.usuario-info .clave {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+
+.btn-eliminar-usuario {
+  background: #A63924;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-eliminar-usuario:hover {
+  background: #832d1d;
+}
+
