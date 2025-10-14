@@ -26,14 +26,18 @@ $(document).ready(function() {
 	    chart: {
 	      type: 'line' // Tipo por defecto
 	    },
-	    title: { text: '' },
+	    title: { 
+	    	text: '',
+	    	style: { fontSize: '1rem', fontWeight: 'bold'}
+	    },
 	    xAxis: {
 	      categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
 	    },
 	    yAxis: {
 	      title: { text: 'Valor' }
 	    },
-	    series: []
+	    series: [],
+	    credits: { enabled: false }
 	  };
 
   switch(id) {
@@ -136,13 +140,17 @@ $(document).ready(function() {
   	function generarGraficaResultado(id) {
 	  Highcharts.chart(id, {
 	    chart: { type: 'line' },
-	    title: { text: 'Estadisticas' },
+	    title: { 
+	    	text: 'Estadisticas',
+	    	style: { fontSize: '1rem', fontWeight: 'bold'}
+	    },
 	    xAxis: { categories: ['Ene','Feb','Mar','Abr','May','Jun'] },
 	    yAxis: { title: { text: 'Valor' } },
 	    series: [
 	      { name: 'USD', data: [Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100] },
 	      { name: 'MXN', data: [Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100, Math.random()*100] }
-	    ]
+	    ],
+	    credits: { enabled: false }
 	  });
 	}
 
@@ -199,14 +207,18 @@ $(document).ready(function() {
 	    chart: {
 	      type: 'line' 
 	    },
-	    title: { text: '' },
+	    title: { 
+	    	text: '',
+	    	style: { fontSize: '1rem', fontWeight: 'bold'}
+	    },
 	    xAxis: {
 	      categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
 	    },
 	    yAxis: {
 	      title: { text: 'Valor' }
 	    },
-	    series: []
+	    series: [],
+	    credits: { enabled: false }
 	};
 	switch(containerId) {
 		case 'grafica-1': 

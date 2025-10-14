@@ -40,16 +40,27 @@ $(document).ready(function() {
 
   $('#titulo-libro-texto').text(titulo);
 
-  $('#btn-hamburguesa').on('click', function() {
-    $('#menu-lateral').toggleClass('show');
-  });
-
-  // Cerrar menú al hacer clic fuera
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest('#menu-lateral, #btn-hamburguesa').length) {
+  $('#btn-hamburguesa').on('click', function() {    
+    if ($('#menu-lateral').hasClass('show')) {
+      //oculta el menu
       $('#menu-lateral').removeClass('show');
+      $('#menu-lateral').toggleClass('oculto');
+      $('#contenido-libro').toggleClass('expandido');      
+    } else {
+      $('#menu-lateral').toggleClass('show');      
+      $('#menu-lateral').removeClass('oculto');
+      $('#contenido-libro').removeClass('expandido');
+      
     }
   });
+
+
+  // Cerrar menú al hacer clic fuera
+  //$(document).on('click', function(e) {
+    //if (!$(e.target).closest('#menu-lateral, #btn-hamburguesa').length) {
+      //$('#menu-lateral').removeClass('show');
+    //}
+  //});
 
   // Toggle expandir/colapsar
   $("#menu-lateral").on("click", ".toggle", function(e) {
@@ -222,7 +233,10 @@ let chart1, chart2;
 
 chart1 = Highcharts.chart('graficaA', {
     chart: { type: 'column' },
-    title: { text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/' },
+    title: { 
+      text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/',
+      style: { fontSize: '1rem', fontWeight: 'bold'}
+    },
     xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
     yAxis: { title: { text: 'Billones de pesos' } },
     series: [
@@ -230,12 +244,16 @@ chart1 = Highcharts.chart('graficaA', {
         { name: 'Futuros', data: [2, 4, 1, 3, 5] },
         { name: 'Forwards', data: [3, 2, 4, 1, 2] },
         { name: 'Opciones y Títulos Opcionales', data: [4, 3, 5, 2, 1] }
-    ]
+    ],
+    credits: { enabled: false }
 });
 
 chart2 = Highcharts.chart('graficaB', {
     chart: { type: 'column' },
-    title: { text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/' },
+    title: { 
+      text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/',
+      style: { fontSize: '1rem', fontWeight: 'bold'}
+    },
     xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
     yAxis: { title: { text: 'Billones de pesos' } },
     series: [
@@ -243,14 +261,18 @@ chart2 = Highcharts.chart('graficaB', {
         { name: 'Futuros', data: [3, 1, 4, 2, 5] },
         { name: 'Forwards', data: [5, 2, 3, 1, 4] },
         { name: 'Opciones y Títulos Opcionales', data: [1, 5, 2, 3, 4] }
-    ]
+    ],
+    credits: { enabled: false }
 });
 
 
 function cargarGraficas() {
   chart1 = Highcharts.chart('graficaA', {
       chart: { type: 'column' },
-      title: { text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/' },
+      title: { 
+        text: 'Estructura de los derivados vigentes por tipo de instrumento 1/ 3/',
+        style: { fontSize: '1rem', fontWeight: 'bold'}
+      },
       xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
       yAxis: { title: { text: 'Billones de pesos' } },
       series: [
@@ -258,12 +280,16 @@ function cargarGraficas() {
           { name: 'Futuros', data: [2, 4, 1, 3, 5] },
           { name: 'Forwards', data: [3, 2, 4, 1, 2] },
           { name: 'Opciones y Títulos Opcionales', data: [4, 3, 5, 2, 1] }
-      ]
+      ],
+      credits: { enabled: false }
   });
 
   chart2 = Highcharts.chart('graficaB', {
       chart: { type: 'column' },
-      title: { text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/' },
+      title: { 
+        text: 'Comportamiento de los derivados vigentes por tipo de instrumento 2/ 3/',
+        style: { fontSize: '1rem', fontWeight: 'bold'}
+      },
       xAxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May'] },
       yAxis: { title: { text: 'Billones de pesos' } },
       series: [
@@ -271,7 +297,8 @@ function cargarGraficas() {
           { name: 'Futuros', data: [3, 1, 4, 2, 5] },
           { name: 'Forwards', data: [5, 2, 3, 1, 4] },
           { name: 'Opciones y Títulos Opcionales', data: [1, 5, 2, 3, 4] }
-      ]
+      ],
+      credits: { enabled: false }
   });
 }
 
@@ -503,6 +530,9 @@ $(".nivel-4 a").on("click", function(e) {
     $("#modal-dashboard").fadeOut(200);
       $("#mensaje-dashboard").hide();   
   });
+
+
+
 
 
 
