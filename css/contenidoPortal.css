@@ -35,11 +35,12 @@ main {
   overflow: hidden;          
   text-overflow: ellipsis;   
   margin-left: 3.5rem;       
+  font-size: 1.6rem;
 }
 
 /* Botón hamburguesa */
 #btn-hamburguesa {
-  display: none; 
+  display: block; 
   background: red; 
   position: absolute;
   left: 1rem;
@@ -118,10 +119,10 @@ main {
 
   #menu-lateral {
     position: fixed;
-    left: -100%; /* fuera de la pantalla por defecto */
+    left: -100%; 
     top: calc(var(--header-h) + 50px);
     height: calc(100% - var(--header-h) - 50px);
-    width: 100%;  /* ocupa todo el ancho */
+    width: 100%;  
     z-index: 2000;
     background: #F5F6FA;
     border-right: 1px solid #04b3bb;
@@ -143,7 +144,7 @@ main {
 }
 
 .menu-fijo {
-  flex-shrink: 0; /* no se reduce */
+  flex-shrink: 0; 
   padding: 1rem;
   border-bottom: 1px solid #04b3bb;
   display: flex;
@@ -281,6 +282,7 @@ main {
   cursor: pointer;
   position: relative;
   color: #000000;
+  font-size: 0.95rem; 
 }
 
 .menu-arbol .toggle {
@@ -663,6 +665,14 @@ main {
   margin-top: 10px;
 }
 
+#menu-lateral.oculto {
+  display: none;
+}
+
+#contenido-libro.expandido {
+  width: 100%;
+  transition: width 0.3s ease;
+}
 
 
 
